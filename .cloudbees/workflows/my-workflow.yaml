@@ -7,7 +7,15 @@ jobs:
   build:
     runs-on: my-label-1
     steps:
-      - name: Say hello
+      - name: Say hello 1
+        shell: sh
+        run: |
+          echo "Hello world! I'm $(whoami) on $(hostname)"
+      - name: Say hello 2
+        shell: sh
+        run: |
+          echo "Hello world! I'm $(whoami) on $(hostname)"
+      - name: Say hello 3
         shell: sh
         run: |
           echo "Hello world! I'm $(whoami) on $(hostname)"
