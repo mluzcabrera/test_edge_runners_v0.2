@@ -36,3 +36,18 @@ jobs:
         shell: sh
         run: |
           echo "Hello world! I'm $(whoami) on $(hostname)"
+  build3:
+    runs-on: [my-label-1,os:darwin]
+    needs: build2
+    steps:
+      - name: Say hello
+        id: hello-step
+        shell: sh
+        env:
+          ENVIRONMENT: "staging"
+          APP_VERSION: "1.0.0"
+          BUILD_TYPE: "release"
+        run: |
+          echo "hello world MLCB"
+          echo "Environment: $ENVIRONMENT"
+          echo "App version: $APP_VERSION"
