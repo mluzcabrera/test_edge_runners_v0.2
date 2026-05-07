@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   fail-immediately:
+    needs: run_normally
     runs-on:
       - my-label-cacacaca
       - os:darwin
