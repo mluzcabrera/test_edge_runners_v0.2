@@ -8,6 +8,7 @@ jobs:
     timeout-minutes: 1
     steps:
       - name: Say hello
+        uses: docker://golang:1.20.3-alpine3.17
         id: hello-step
         shell: sh
         env:
