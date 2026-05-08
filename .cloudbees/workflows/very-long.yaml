@@ -6,7 +6,6 @@ on:
 jobs:
   verylong:
     runs-on: my-label-1
-    needs: build
     steps:
       - name: Say hello 1
         shell: sh
