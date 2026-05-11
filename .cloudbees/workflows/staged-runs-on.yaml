@@ -9,6 +9,7 @@ metadata:
       jobs:
         - job1
         - job2
+        - job3
 jobs:
   job1:
     runs-on: my-label-1
@@ -18,11 +19,24 @@ jobs:
         name: Hello world
         shell: sh
   job2:
-    needs:
-      - job1
+    needs: job1
     runs-on: os:darwin
     steps:
       - run: echo "hello"
         uses: docker://golang:1.20.3-alpine3.17
         name: hi
+        shell: sh
+  job3:
+    needs:
+      - job2
+    runs-on:
+      - my-label-2
+      - os:darwin
+      - arch:arm64
+      - my-label-1
+      - new-label
+    steps:
+      - run: echo "hello"
+        uses: docker://golang:1.20.3-alpine3.17
+        name: hello
         shell: sh
